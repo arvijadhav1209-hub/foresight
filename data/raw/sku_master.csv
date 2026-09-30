@@ -1,0 +1,13 @@
+sku_id,product_name,category,subcategory,launch_date,unit_cost,list_price
+SKU01,Steel Water Bottle,Kitchen,Drinkware,2023-06-01,250,499
+SKU02,Ceramic Coffee Mug,kitchen ,Drinkware,2023-06-01,120,299
+SKU03,Non-stick Pan,Kitchen,Cookware,2023-06-01,480,899
+SKU04,Cotton Bedsheet,Bedroom,Bedding,2023-06-01,600,1199
+SKU05,Soft Pillow Set,BEDROOM,Bedding,2023-06-01,380,799
+SKU06,Woolen Blanket,Bedroom,Bedding,2023-06-01,1100,1999
+SKU07,Table Lamp,Decor,Lighting,2023-06-01,650,1299
+SKU08,Scented Candle,decor ,Fragrance,2023-06-01,130,349
+SKU09,Wall Clock,Decor,Wall Art,2023-06-01,480,999
+SKU10,Electric Kettle,Appliances,Small Appliance,2023-06-01,800,1499
+SKU11,Mixer Grinder,Appliances,Small Appliance,2023-06-01,2100,3499
+SKU12,Room Fan,Appliances,Cooling,2023-06-01,1400,2499

@@ -1,5 +1,11 @@
 # 🔮 Project FORESIGHT – Demand & Inventory Intelligence (NorthBay Living)
 
+[![Render](https://img.shields.io/badge/Render-Live%20Demo-46E3B7?logo=render&logoColor=white)](https://foresight-gctc.onrender.com)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://foresight-gctc.onrender.com)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?logo=github&logoColor=white)](https://github.com/arvijadhav1209-hub/foresight)
+
+🚀 **Live Dashboard:** [https://foresight-gctc.onrender.com](https://foresight-gctc.onrender.com)
+
 Tells the operations team, for 12 everyday home products: **how much will sell in the next 6 weeks, which products will run out (reorder), and which are overstocked (clear).**
 
 ## Quick start

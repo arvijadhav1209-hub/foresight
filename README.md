@@ -4,17 +4,27 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://foresight-gctc.onrender.com)
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?logo=github&logoColor=white)](https://github.com/arvijadhav1209-hub/foresight)
 
-🚀 **Live Dashboard:** [https://foresight-gctc.onrender.com](https://foresight-gctc.onrender.com)
+> 🚀 **Live Dashboard:** [https://foresight-gctc.onrender.com](https://foresight-gctc.onrender.com)  
+> ⏳ *Note: Render's free tier spins down after 15 minutes of inactivity; if sleeping, please allow ~30–50 seconds for the initial wake-up.*
+
+### 🔑 Demo Login Credentials
+| Role | Username | Password | Access Level |
+|---|---|---|---|
+| **Admin** | `admin` | `foresight123` | Full access, settings & audit |
+| **Operations** | `ops` | `northbay2025` | Operations dashboard & planning |
+
+Passwords are stored securely hashed (PBKDF2) in the SQLite `users` table.
+
+---
 
 Tells the operations team, for 12 everyday home products: **how much will sell in the next 6 weeks, which products will run out (reorder), and which are overstocked (clear).**
 
-## Quick start
+## Quick start (Run Locally)
 ```bash
 pip install -r requirements.txt
 python run_pipeline.py        # one command: data -> clean -> forecast -> risk -> foresight.db
 streamlit run app.py          # open the dashboard
 ```
-**Demo login:** `admin` / `foresight123` (or `ops` / `northbay2025`). Passwords are stored hashed (PBKDF2) in the `users` table.
 
 ## Folder map
 | File | What it does |
@@ -43,7 +53,8 @@ No leakage: each feature uses only data up to the forecast date; promo/holiday p
 
 ## Deploy (free)
 
-### Option A: Render
+### Option A: Render (Currently Deployed)
+- **Live URL:** [https://foresight-gctc.onrender.com](https://foresight-gctc.onrender.com)
 1. Go to [dashboard.render.com](https://dashboard.render.com) → **New +** → **Web Service** (or **Blueprint**).
 2. Connect your GitHub repository `foresight`.
 3. Set the following settings (automatically read if using Blueprint):

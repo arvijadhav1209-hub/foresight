@@ -35,8 +35,18 @@ No leakage: each feature uses only data up to the forecast date; promo/holiday p
 - **Running out:** expected demand during delivery time + safety stock (90% service level) > stock on hand + on order → *Reorder now*.
 - **Too much stock:** stock lasts > 6 weeks of forecast sales → *Markdown / clear*. Both true → *Watch*.
 
-## Deploy (free) – Streamlit Community Cloud
-Push to GitHub → share.streamlit.io → New app → select repo, main file `app.py`. The database builds itself on first start.
+## Deploy (free)
+
+### Option A: Render
+1. Go to [dashboard.render.com](https://dashboard.render.com) → **New +** → **Web Service** (or **Blueprint**).
+2. Connect your GitHub repository `foresight`.
+3. Set the following settings (automatically read if using Blueprint):
+   - **Build Command:** `pip install -r requirements.txt`
+   - **Start Command:** `streamlit run app.py --server.port $PORT --server.address 0.0.0.0`
+4. Click **Deploy Web Service**.
+
+### Option B: Streamlit Community Cloud
+Push to GitHub → [share.streamlit.io](https://share.streamlit.io) → New app → select repo `arvijadhav1209-hub/foresight`, main file `app.py`. The database builds itself on first start.
 
 ## Assumptions
 Sample data is synthetic (Zidio's brief says data is provided; this stands in for it). Lead times and reorder points are assumed accurate.

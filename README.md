@@ -19,6 +19,18 @@ Passwords are stored securely hashed (PBKDF2) in the SQLite `users` table.
 
 Tells the operations team, for 12 everyday home products: **how much will sell in the next 6 weeks, which products will run out (reorder), and which are overstocked (clear).**
 
+## 📸 Application Preview
+
+### 1. Operations Overview Dashboard
+Instant visibility into items needing immediate reorder, overstocked products, stock health breakdown, and quantified ₹ sales at risk:
+![Executive Overview Dashboard](assets/dashboard_overview.png)
+
+### 2. 6-Week Forecast & Inventory Depth
+Granular weekly forecasts comparing actual sales against machine learning predictions with 80% confidence intervals and stock-on-hand metrics:
+![Demand Forecasting & Inventory Depth](assets/forecast_details.png)
+
+---
+
 ## Quick start (Run Locally)
 ```bash
 pip install -r requirements.txt

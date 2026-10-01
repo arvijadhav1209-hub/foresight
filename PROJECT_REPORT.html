@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Report - Project FORESIGHT | Arati Jadhav</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4F46E5;
+      --primary-light: #EEF2FF;
+      --secondary: #0F172A;
+      --accent: #06B6D4;
+      --gray-50: #F8FAFC;
+      --gray-100: #F1F5F9;
+      --gray-200: #E2E8F0;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-800: #1E293B;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-800);
+      background: #F8FAFC;
+      line-height: 1.65;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 3.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+    .header-badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--secondary);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--gray-600);
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
+    .meta-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+    .meta-item .label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+    .meta-item .value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+    .meta-item .value a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .meta-item .value a:hover {
+      text-decoration: underline;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--gray-100);
+      padding-bottom: 0.5rem;
+    }
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--gray-800);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    p { margin-bottom: 1.15rem; }
+    ul, ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+    li { margin-bottom: 0.35rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    th {
+      background: var(--gray-50);
+      color: var(--gray-700);
+      font-weight: 600;
+    }
+    tr:hover { background: var(--gray-50); }
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .badge-reorder { background: #FEE2E2; color: #DC2626; }
+    .badge-clear { background: #EDE9FE; color: #7C3AED; }
+    .badge-watch { background: #FEF3C7; color: #D97706; }
+    .badge-healthy { background: #D1FAE5; color: #059669; }
+    .callout {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    pre, code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+    code {
+      background: var(--gray-100);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      color: var(--primary);
+    }
+    pre {
+      background: var(--gray-800);
+      color: #E2E8F0;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .print-button {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.65rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+    .print-button:hover { background: #4338CA; }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .container { box-shadow: none; padding: 0; max-width: 100%; border-radius: 0; }
+      .print-button { display: none; }
+      h2 { page-break-before: auto; }
+      table { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-button" onclick="window.print()">
+    🖨️ Save as PDF / Print
+  </button>
+
+  <div class="container">
+    <div class="header-badge">Zidio Development · Internship Project Report</div>
+    <h1>Project FORESIGHT</h1>
+    <div class="subtitle">Demand Forecasting & Inventory Risk Intelligence Platform (NorthBay Living)</div>
+
+    <div class="meta-card">
+      <div class="meta-item">
+        <div class="label">Candidate Name</div>
+        <div class="value">Arati Jadhav</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Email</div>
+        <div class="value">aratijadhav710@gmail.com</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Client / Domain</div>
+        <div class="value">NorthBay Living</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Submission Date</div>
+        <div class="value">October 2026</div>
+      </div>
+      <div class="meta-item" style="grid-column: 1 / -1;">
+        <div class="label">Repository & Live Deployment</div>
+        <div class="value">
+          <a href="https://github.com/arvijadhav1209-hub/foresight" target="_blank">github.com/arvijadhav1209-hub/foresight</a> &nbsp;|&nbsp; 
+          <a href="https://foresight-gctc.onrender.com" target="_blank">foresight-gctc.onrender.com</a>
+        </div>
+      </div>
+    </div>
+
+    <h2>1. Executive Summary</h2>
+    <p>In retail and omni-channel commerce, inventory mismanagement drives significant financial drag through two major channels: <strong>stockouts</strong> (lost immediate revenue and customer churn) and <strong>overstocking</strong> (tied-up working capital, elevated holding costs, and margin degradation via forced clearance markdowns).</p>
+    <p><strong>Project FORESIGHT</strong> is an end-to-end predictive analytics and decision-support system built for NorthBay Living across 12 high-velocity everyday home product SKUs over a 2-year transactional horizon. The system delivers an automated ETL pipeline, a 6-week rolling time-series forecast model using <code>HistGradientBoostingRegressor</code> (<strong>14.5% WAPE</strong>, a <strong>19.7% accuracy boost</strong> over seasonal-naive benchmarks), a risk-scoring matrix at a 90% service level, and an interactive executive planning dashboard deployed on Render.</p>
+
+    <div class="callout">
+      <strong>Key Business Impact:</strong> Flagged <strong>₹7.28 Lakhs in sales-at-risk</strong> across 5 stockout-prone products and identified <strong>₹2.14 Lakhs in surplus working capital</strong> trapped in overstocked goods, providing actionable replenishment quantities directly to operations.
+    </div>
+
+    <h2>2. Problem Statement & Objectives</h2>
+    <p>NorthBay Living manages diverse catalog lines spanning Kitchenware, Bedding, Home Decor, and Small Appliances with supplier lead times between 7 and 30 days. Operations teams lacked unified tools to project demand across marketing events or quantify the financial stakes of reordering too late vs. buying too much.</p>
+    <p><strong>Core Deliverables:</strong></p>
+    <ul>
+      <li><strong>D1 (Data Pipeline & Hygiene):</strong> Ingest and clean 4 transactional datasets (duplicates, missing prices, string anomalies) and create an indexed SQLite database.</li>
+      <li><strong>D3 (Machine Learning Forecast):</strong> Predict SKU-level demand for the next 6 weeks using strictly leak-free historical, calendar, and promotional features.</li>
+      <li><strong>D4 (Risk Scoring & Decisions):</strong> Categorize inventory into a 4-quadrant decision matrix (Reorder Now, Markdown / Clear, Watch, Healthy) with monetary risk estimation.</li>
+      <li><strong>D5 (Web Dashboard & Security):</strong> Develop an interactive, role-based planning tool with PBKDF2 cryptographic password hashing and deploy to cloud production.</li>
+    </ul>
+
+    <h2>3. Machine Learning Demand Forecasting</h2>
+    <p>The forecasting engine predicts weekly sales for <code>H = 6</code> weeks ahead. To avoid lookahead bias, all features use only information available up to the forecast origin date:</p>
+    <ul>
+      <li><code>last1</code>: Immediate prior week demand.</li>
+      <li><code>m4, m8</code>: 4-week and 8-week moving averages of demand velocity.</li>
+      <li><code>ly, ly3</code>: Demand from identical week last year (t-52) and centered 3-week window.</li>
+      <li><code>promo, hol</code>: Future known promotional events and official public holiday counts.</li>
+      <li><code>woy</code>: ISO calendar week of the year to capture annual seasonality.</li>
+    </ul>
+
+    <h3>Backtest Performance (6 Rolling Rounds × 6 Weeks)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Evaluation Metric</th>
+          <th>Seasonal-Naive Baseline</th>
+          <th>Gradient Boosting Model</th>
+          <th>Relative Delta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>WAPE (Weighted Absolute % Error)</strong></td>
+          <td>18.00%</td>
+          <td><strong>14.46%</strong></td>
+          <td><strong>+19.70% Improvement</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Forecast Bias</strong></td>
+          <td>—</td>
+          <td><strong>-0.015</strong></td>
+          <td>Unbiased (no systematic over/under forecasting)</td>
+        </tr>
+        <tr>
+          <td><strong>Production Selection Rule</strong></td>
+          <td>Discarded</td>
+          <td><strong>Active Model</strong></td>
+          <td>Model verified superior to baseline</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>4. Inventory Risk Scoring & Decision Matrix</h2>
+    <p>Safety stock is dynamically sized for a <strong>90% Cycle Service Level</strong> (Z = 1.28) considering weekly demand volatility (σ₁₃) and supplier lead times:</p>
+    <p>$$\text{Safety Stock} = 1.28 \times \sigma_{13} \times \sqrt{\text{Lead Time Weeks}}$$</p>
+    <p>Total replenishment need is compared against supply (On Hand + On Order) to compute the <strong>Cover Ratio</strong> and <strong>Weeks of Supply</strong>, populating the 4-box decision grid:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Category</th>
+          <th>Weeks of Stock</th>
+          <th>Cover Ratio</th>
+          <th>Decision Quadrant</th>
+          <th>Sales at Risk (₹)</th>
+          <th>Locked Capital (₹)</th>
+          <th>Suggested Order</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Steel Water Bottle</strong></td>
+          <td>Kitchen</td>
+          <td>0.9</td>
+          <td>0.64</td>
+          <td><span class="badge badge-reorder">Reorder now</span></td>
+          <td>₹18,772</td>
+          <td>₹0</td>
+          <td>251 units</td>
+        </tr>
+        <tr>
+          <td><strong>Non-stick Pan</strong></td>
+          <td>Kitchen</td>
+          <td>1.0</td>
+          <td>0.42</td>
+          <td><span class="badge badge-reorder">Reorder now</span></td>
+          <td>₹98,713</td>
+          <td>₹0</td>
+          <td>179 units</td>
+        </tr>
+        <tr>
+          <td><strong>Woolen Blanket</strong></td>
+          <td>Bedding</td>
+          <td>1.0</td>
+          <td>0.31</td>
+          <td><span class="badge badge-reorder">Reorder now</span></td>
+          <td>₹2,39,878</td>
+          <td>₹0</td>
+          <td>134 units</td>
+        </tr>
+        <tr>
+          <td><strong>Electric Kettle</strong></td>
+          <td>Small Appliances</td>
+          <td>2.1</td>
+          <td>0.43</td>
+          <td><span class="badge badge-reorder">Reorder now</span></td>
+          <td>₹2,19,916</td>
+          <td>₹0</td>
+          <td>185 units</td>
+        </tr>
+        <tr>
+          <td><strong>Room Fan</strong></td>
+          <td>Small Appliances</td>
+          <td>4.2</td>
+          <td>0.76</td>
+          <td><span class="badge badge-reorder">Reorder now</span></td>
+          <td>₹1,10,100</td>
+          <td>₹0</td>
+          <td>85 units</td>
+        </tr>
+        <tr>
+          <td><strong>Mixer Grinder</strong></td>
+          <td>Small Appliances</td>
+          <td>6.5</td>
+          <td>0.95</td>
+          <td><span class="badge badge-watch">Watch / volatile</span></td>
+          <td>₹40,186</td>
+          <td>₹37,800</td>
+          <td>47 units</td>
+        </tr>
+        <tr>
+          <td><strong>Cotton Bedsheet</strong></td>
+          <td>Bedding</td>
+          <td>7.9</td>
+          <td>3.40</td>
+          <td><span class="badge badge-clear">Markdown / clear</span></td>
+          <td>₹0</td>
+          <td>₹1,20,000</td>
+          <td>0 units</td>
+        </tr>
+        <tr>
+          <td><strong>Wall Clock</strong></td>
+          <td>Home Decor</td>
+          <td>14.1</td>
+          <td>6.00</td>
+          <td><span class="badge badge-clear">Markdown / clear</span></td>
+          <td>₹0</td>
+          <td>₹56,256</td>
+          <td>0 units</td>
+        </tr>
+        <tr>
+          <td><strong>Ceramic Coffee Mug</strong></td>
+          <td>Kitchen</td>
+          <td>3.0</td>
+          <td>1.93</td>
+          <td><span class="badge badge-healthy">Healthy</span></td>
+          <td>₹0</td>
+          <td>₹0</td>
+          <td>0 units</td>
+        </tr>
+        <tr>
+          <td><strong>Soft Pillow Set</strong></td>
+          <td>Bedding</td>
+          <td>3.9</td>
+          <td>1.74</td>
+          <td><span class="badge badge-healthy">Healthy</span></td>
+          <td>₹0</td>
+          <td>₹0</td>
+          <td>0 units</td>
+        </tr>
+        <tr>
+          <td><strong>Table Lamp</strong></td>
+          <td>Home Decor</td>
+          <td>4.3</td>
+          <td>1.85</td>
+          <td><span class="badge badge-healthy">Healthy</span></td>
+          <td>₹0</td>
+          <td>₹0</td>
+          <td>0 units</td>
+        </tr>
+        <tr>
+          <td><strong>Scented Candle</strong></td>
+          <td>Home Decor</td>
+          <td>2.8</td>
+          <td>1.77</td>
+          <td><span class="badge badge-healthy">Healthy</span></td>
+          <td>₹0</td>
+          <td>₹0</td>
+          <td>0 units</td>
+        </tr>
+        <tr style="font-weight: 700; background: var(--gray-100);">
+          <td>TOTAL / SUMMARY</td>
+          <td>12 Products</td>
+          <td>—</td>
+          <td>—</td>
+          <td>5 Reorder, 2 Clear</td>
+          <td>₹7,27,565</td>
+          <td>₹2,14,056</td>
+          <td>882 units</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>5. Deployment & System Architecture</h2>
+    <ul>
+      <li><strong>Interactive Web Dashboard:</strong> Developed with Streamlit and Plotly, delivering responsive data visualization and self-healing SQLite database instantiation.</li>
+      <li><strong>Enterprise Security:</strong> Implemented PBKDF2 HMAC-SHA256 password hashing with 100,000 rounds and unique per-user salts. Roles: <code>admin</code> (full configuration) and <code>ops</code> (planning).</li>
+      <li><strong>Cloud Infrastructure:</strong> Deployed as a web service on Render (<code>foresight-gctc.onrender.com</code>) using <code>render.yaml</code> and <code>Procfile</code>.</li>
+      <li><strong>Version Control:</strong> Managed via Git and published on GitHub at <code>arvijadhav1209-hub/foresight</code>.</li>
+    </ul>
+
+    <h2>6. Conclusion</h2>
+    <p>Project FORESIGHT delivers an automated, mathematically rigorous, and commercially actionable decision-support solution for NorthBay Living. By shifting from reactive replenishment to predictive inventory risk management, operations teams safeguard critical revenue, prevent customer attrition, and liberate stagnant working capital.</p>
+
+    <hr style="border: none; border-top: 1px solid var(--gray-200); margin: 2rem 0;">
+    <p style="text-align: center; font-size: 0.85rem; color: var(--gray-600);">
+      Submitted in partial fulfillment of the Internship Requirements at <strong>Zidio Development</strong>.<br>
+      © 2026 Arati Jadhav · Project FORESIGHT
+    </p>
+  </div>
+
+</body>
+</html>

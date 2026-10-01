@@ -2,9 +2,11 @@
 
 [![Render](https://img.shields.io/badge/Render-Live%20Demo-46E3B7?logo=render&logoColor=white)](https://foresight-gctc.onrender.com)
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://foresight-gctc.onrender.com)
+[![Project Report](https://img.shields.io/badge/Project%20Report-PDF%20%7C%20Markdown-4F46E5?logo=readme&logoColor=white)](PROJECT_REPORT.md)
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?logo=github&logoColor=white)](https://github.com/arvijadhav1209-hub/foresight)
 
 > 🚀 **Live Dashboard:** [https://foresight-gctc.onrender.com](https://foresight-gctc.onrender.com)  
+> 📄 **Official Project Report:** [Read PROJECT_REPORT.md](PROJECT_REPORT.md) | [Download PDF](Project_FORESIGHT_Report_Arati_Jadhav.pdf)  
 > ⏳ *Note: Render's free tier spins down after 15 minutes of inactivity; if sleeping, please allow ~30–50 seconds for the initial wake-up.*
 
 ### 🔑 Demo Login Credentials
